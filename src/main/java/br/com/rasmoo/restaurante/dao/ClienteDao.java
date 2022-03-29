@@ -43,5 +43,11 @@ public class ClienteDao {
         return this.entityManager.createQuery(jpql,Cliente.class).setParameter("valor",filtro).getResultList();
     }
 	
+	public List<Cliente> consultarPorNome(final String nome) {
+        String jpql = "SELECT c FROM Cliente c WHERE LOWER(c.nome) LIKE LOWER(:nome)";
+        return this.entityManager.createQuery(jpql,Cliente.class).setParameter("nome", "%"+nome+"%")
+                .getResultList();
+    }
+	
 
 }

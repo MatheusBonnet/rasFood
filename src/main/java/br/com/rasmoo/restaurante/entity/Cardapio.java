@@ -21,7 +21,7 @@ public class Cardapio {
 
     private BigDecimal valor;
     
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Categoria categorias;
    
 
